@@ -1,0 +1,53 @@
+{
+  "title": "Signal Processing Algorithm",
+  "nodes": [
+    {
+      "id": "input",
+      "label": "Input Signal",
+      "type": "input",
+      "annotations": ["Raw RF Data"]
+    },
+    {
+      "id": "matched_filter",
+      "label": "Matched Filter",
+      "type": "process",
+      "annotations": ["Cross-correlation"]
+    },
+    {
+      "id": "tdoa",
+      "label": "TDOA Estimation",
+      "type": "process",
+      "annotations": ["Time Difference"]
+    },
+    {
+      "id": "multilateration",
+      "label": "Multilateration",
+      "type": "process",
+      "annotations": ["Position Calc"]
+    },
+    {
+      "id": "output",
+      "label": "Location Output",
+      "type": "output",
+      "annotations": ["(x, y, z)"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "input",
+      "to": "matched_filter"
+    },
+    {
+      "from": "matched_filter",
+      "to": "tdoa"
+    },
+    {
+      "from": "tdoa",
+      "to": "multilateration"
+    },
+    {
+      "from": "multilateration",
+      "to": "output"
+    }
+  ]
+}
