@@ -1,0 +1,83 @@
+{
+  "title": "Advanced Signal Processing Pipeline",
+  "nodes": [
+    {
+      "id": "sensor1",
+      "label": "Sensor Array 1",
+      "type": "input",
+      "annotations": ["RF Antenna"]
+    },
+    {
+      "id": "sensor2",
+      "label": "Sensor Array 2",
+      "type": "input",
+      "annotations": ["RF Antenna"]
+    },
+    {
+      "id": "preprocess",
+      "label": "Preprocessing",
+      "type": "process",
+      "annotations": ["Filtering", "Normalization"]
+    },
+    {
+      "id": "sync",
+      "label": "Time Sync",
+      "type": "process",
+      "annotations": ["Clock Alignment"]
+    },
+    {
+      "id": "correlation",
+      "label": "Cross-Correlation",
+      "type": "process",
+      "annotations": ["Signal Matching"]
+    },
+    {
+      "id": "estimation",
+      "label": "Parameter Est.",
+      "type": "process",
+      "annotations": ["TDOA/FDOA"]
+    },
+    {
+      "id": "localization",
+      "label": "Geolocation",
+      "type": "process",
+      "annotations": ["Triangulation"]
+    },
+    {
+      "id": "output",
+      "label": "Target Position",
+      "type": "output",
+      "annotations": ["Lat/Lon/Alt"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "sensor1",
+      "to": "preprocess"
+    },
+    {
+      "from": "sensor2",
+      "to": "preprocess"
+    },
+    {
+      "from": "preprocess",
+      "to": "sync"
+    },
+    {
+      "from": "sync",
+      "to": "correlation"
+    },
+    {
+      "from": "correlation",
+      "to": "estimation"
+    },
+    {
+      "from": "estimation",
+      "to": "localization"
+    },
+    {
+      "from": "localization",
+      "to": "output"
+    }
+  ]
+}
