@@ -56,13 +56,22 @@ Sigmantic is a signal processing project focused on geolocation and tracking usi
 ## Build, Test, and Validation
 
 ### Building
-- Install dependencies: `pip install -r requirements.txt`
-- Generate diagrams: `make diagram`
+- **Python Version:** Python 3.6+ recommended
+- **Setup:**
+  1. Create a virtual environment: `python -m venv venv`
+  2. Activate: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
+  3. Install dependencies: `pip install -r requirements.txt`
+- **Diagrams:** Generate with `make diagram`
 
 ### Testing
 - Currently, the project uses manual testing through demo scripts
 - Run demos: `python demo/run_demo.py`
 - Generate synthetic test data: `python demo/synth_data.py`
+- **Future Testing:** As the project grows, consider adding:
+  - Unit tests with pytest for individual processing blocks
+  - Integration tests for complete processing chains
+  - Numerical accuracy tests comparing against known solutions
+  - Performance benchmarks for signal processing operations
 
 ### Validation
 - Ensure code runs without errors on demo data
