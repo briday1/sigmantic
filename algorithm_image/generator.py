@@ -102,7 +102,7 @@ class AlgorithmImageGenerator:
             title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 80)
             label_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 36)
             annotation_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
-        except:
+        except (OSError, IOError):
             title_font = ImageFont.load_default()
             label_font = ImageFont.load_default()
             annotation_font = ImageFont.load_default()
@@ -155,6 +155,8 @@ class AlgorithmImageGenerator:
             y = y_start + group_idx * (self.BOX_HEIGHT + self.BOX_SPACING)
             
             # Center the group horizontally
+            if len(group) == 0:
+                continue
             total_width = len(group) * self.BOX_WIDTH + (len(group) - 1) * self.BOX_SPACING
             x_start = (self.width - total_width) // 2
             

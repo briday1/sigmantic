@@ -4,6 +4,7 @@
 import json
 import os
 import sys
+import tempfile
 from generator import AlgorithmImageGenerator
 from PIL import Image
 
@@ -114,7 +115,7 @@ def test_save_functionality():
     }
     
     generator = AlgorithmImageGenerator()
-    test_output = "/tmp/test_output.png"
+    test_output = os.path.join(tempfile.gettempdir(), "test_output.png")
     
     generator.generate_and_save(flow_dict, test_output)
     
